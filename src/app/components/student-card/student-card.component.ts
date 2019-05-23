@@ -43,8 +43,7 @@ export class StudentCardComponent implements OnInit {
     return 'yellow'}
   }
   replace(dat: string): string {
-    console.log('muesta',dat)
-    return dat.replace('_'," ")
+    return dat.replace(/_/g,' ')
   }
   getAverage(): void {
     this.dataApi

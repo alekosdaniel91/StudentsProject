@@ -18,6 +18,8 @@ export class DataStudentsComponent implements OnInit {
   ngOnInit() {
     this.getData();
     this.getAverage();
+    let v='Spawn_Locker_Hangout_Seat_LunchSpot_Seat_Locker_Exit'
+    console.log('Spawn_Locker_Hangout_Seat_LunchSpot_Seat_Locker_Exit',v.replace(/_/g,' '))
   }
   
   
@@ -43,8 +45,7 @@ export class DataStudentsComponent implements OnInit {
     return 'yellow'}
   }
   replace(dat: string): string {
-    console.log('muesta',dat)
-    return dat.replace('_'," ")
+    return dat.replace(/_/g,' ')
   }
   getAverage(): void {
     this.dataApi

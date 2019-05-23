@@ -19,9 +19,9 @@
                                 <p>Hairstyle: {{dat.Hairstyle}}</p>
                                 <p>Stockings: {{dat.Stockings}}</p>
                                 <p>Accessory: {{dat.Accessory}}</p>
-                                <p>ScheduleTime: {{dat.ScheduleTime}}</p>
-                                <p>ScheduleDestination: {{dat.ScheduleDestination}}</p>
-                                <p>ScheduleTime{{dat.ScheduleAction}}</p>
+                                <p>ScheduleTime: {{replace(dat.ScheduleTime)}}</p>
+                                <p>ScheduleDestination: {{replace(dat.ScheduleDestination)}}</p>
+                                <p>ScheduleTime: {{replace(dat.ScheduleAction)}}</p>
                             </mat-card-content>
                             <mat-card-actions>
                                 <p *ngIf="isTrue && ID===dat.ID" [ngStyle]="{'color': getColor(dat.grades) }">grades: {{dat.grades}}</p>
