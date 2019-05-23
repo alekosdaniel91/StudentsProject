@@ -1,0 +1,36 @@
+<div *ngIf="data!=undefined" class="background">
+    <mat-grid-list cols="2" rowHeight="2:2">
+            <mat-grid-tile *ngFor="let dat of data; let i=index">
+                    <mat-card class="example-card" >
+                            <mat-card-header>
+                                <mat-card-title [ngStyle]="{'color':dat.Color}">{{dat.Name}}</mat-card-title>
+                                <span class="example-spacer"></span>
+                                <button mat-raised-button color="primary" (click)="getGrades(i)">Grade</button>
+                            </mat-card-header>
+                            <mat-card-content [ngStyle]="{'color':dat.Color}">
+                                <p>{{dat.ID}}</p>
+                                <p>Gender: {{dat.Gender}}</p>
+                                <p>Class: {{dat.Class}}</p>
+                                <p>Club: {{dat.Club}}</p>
+                                <p>Persona: {{dat.Persona}}</p>
+                                <p>Crush: {{dat.Crush}}</p>
+                                <p>BreastSize: {{dat.BreastSize}}</p>
+                                <p>Strength: {{dat.Strength}}</p>
+                                <p>Hairstyle: {{dat.Hairstyle}}</p>
+                                <p>Stockings: {{dat.Stockings}}</p>
+                                <p>Accessory: {{dat.Accessory}}</p>
+                                <p>ScheduleTime: {{dat.ScheduleTime}}</p>
+                                <p>ScheduleDestination: {{dat.ScheduleDestination}}</p>
+                                <p>ScheduleTime{{dat.ScheduleAction}}</p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <p *ngIf="isTrue && ID===dat.ID" [ngStyle]="{'color': getColor(dat.grades) }">grades: {{dat.grades}}</p>
+                               
+                            </mat-card-actions>
+                        </mat-card>
+            </mat-grid-tile>
+            
+        </mat-grid-list>
+
+
+</div>
