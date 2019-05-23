@@ -1,36 +1,78 @@
-<div *ngIf="data!=undefined" class="background">
-    <mat-grid-list cols="2" rowHeight="2:2">
-            <mat-grid-tile *ngFor="let dat of data; let i=index">
-                    <mat-card class="example-card" >
-                            <mat-card-header>
-                                <mat-card-title [ngStyle]="{'color':dat.Color}">{{dat.Name}}</mat-card-title>
-                                <span class="example-spacer"></span>
-                                <button mat-raised-button color="primary" (click)="getGrades(i)">Grade</button>
-                            </mat-card-header>
-                            <mat-card-content [ngStyle]="{'color':dat.Color}">
-                                <p>{{dat.ID}}</p>
-                                <p>Gender: {{dat.Gender}}</p>
-                                <p>Class: {{dat.Class}}</p>
-                                <p>Club: {{dat.Club}}</p>
-                                <p>Persona: {{dat.Persona}}</p>
-                                <p>Crush: {{dat.Crush}}</p>
-                                <p>BreastSize: {{dat.BreastSize}}</p>
-                                <p>Strength: {{dat.Strength}}</p>
-                                <p>Hairstyle: {{dat.Hairstyle}}</p>
-                                <p>Stockings: {{dat.Stockings}}</p>
-                                <p>Accessory: {{dat.Accessory}}</p>
-                                <p>ScheduleTime: {{replace(dat.ScheduleTime)}}</p>
-                                <p>ScheduleDestination: {{replace(dat.ScheduleDestination)}}</p>
-                                <p>ScheduleTime: {{replace(dat.ScheduleAction)}}</p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <p *ngIf="isTrue && ID===dat.ID" [ngStyle]="{'color': getColor(dat.grades) }">grades: {{dat.grades}}</p>
-                               
-                            </mat-card-actions>
-                        </mat-card>
-            </mat-grid-tile>
-            
-        </mat-grid-list>
+<div *ngIf="data!=undefined">
+    <mat-grid-list cols="2" rowHeight="3:2">
+        <mat-grid-tile *ngFor="let dat of data; let i=index">
+            <mat-card class="example-card background" [ngStyle]="{'color':dat.Color}">
+                <mat-card-header>
+                    <mat-card-title [ngStyle]="{'color':dat.Color}">{{dat.Name}}</mat-card-title>
+                    <span class="example-spacer"></span>
+                    <button mat-raised-button color="secondary" (click)="getGrades(i)">Grade</button>
+                </mat-card-header>
+                <mat-list>
+                    <mat-list-item [ngStyle]="{'color':dat.Color}" class="item">
+                        <table style="width:100%;" matSort (matSortChange)="sortData($event)">
+                            <tr style="text-align: center">
+                                <th mat-sort-header="ID">ID</th>
+                                <th mat-sort-header="Gender">Gender</th>
+                                <th mat-sort-header="Class">Class</th>
+                                <th mat-sort-header="Club">Club</th>
+                                <th mat-sort-header="Crush">Crush</th>
+                                <th mat-sort-header="Color">Color</th>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>{{dat.ID}}</td>
+                                <td>{{dat.Gender}}</td>
+                                <td>{{dat.Class}}</td>
+                                <td>{{dat.Club}}</td>
+                                <td>{{dat.Crush}}</td>
+                                <td>{{dat.Color}}</td>
+                            </tr>
+                        </table>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item [ngStyle]="{'color':dat.Color}">
+                        <table style="width:100%;" matSort (matSortChange)="sortData($event)">
+                            <tr style="text-align: center">
+                                <th mat-sort-header="Persona">Persona</th>
+                                <th mat-sort-header="BreastSize">BreastSize</th>
+                                <th mat-sort-header="Strength">Strength</th>
+                                <th mat-sort-header="Hairstyle">Hairstyle</th>
+                                <th mat-sort-header="Stockings">Stockings</th>
+                            </tr>
+                            <tr style="text-align: center">
+                                <td>{{dat.Persona}}</td>
+                                <td>{{dat.BreastSize}}</td>
+                                <td>{{dat.Strength}}</td>
+                                <td>{{dat.Hairstyle}}</td>
+                                <td>{{dat.Stockings}}</td>
+                            </tr>
+                        </table>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item [ngStyle]="{'color':dat.Color}">
+                        <table style="width:100%; margin-top: 30px;" matSort (matSortChange)="sortData($event)">
+                            <tr style="text-align: center">
+                                <th mat-sort-header="ScheduleTime">Schedule Time</th>
+                                <th mat-sort-header="ScheduleAction">Schedule Action</th>
+                                <th mat-sort-header="ScheduleDestination">Schedule Destination</th>
+                            </tr>
+                            <tr style="text-align: center; font-size: 12px">
+                                <td>{{replace(dat.ScheduleTime)}}</td>
+                                <td>{{replace(dat.ScheduleAction)}}</td>
+                                <td>{{replace(dat.ScheduleDestination)}}</td>
+                            </tr>
+                        </table>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+                <mat-card-actions>
+                    <p *ngIf="isTrue && ID===dat.ID" [ngStyle]="{'color': getColor(dat.grades) }">grades:
+                        {{dat.grades}}</p>
+
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+
+    </mat-grid-list>
 
 
 </div>
