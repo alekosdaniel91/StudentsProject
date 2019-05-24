@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-      <span>Average </span>  <span [ngStyle]="{'color': getColor(average) }">: {{averageActive}}</span>
+    <span *ngIf="isLogged" >Average:&nbsp; </span><span *ngIf="isLogged" [ngStyle]="{'color': getColor(average) }">{{averageActive}}</span>
     <span class="example-spacer"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
@@ -8,21 +8,15 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>dialpad</mat-icon>
-        <span routerLink="/table" >tabla</span>
+        <span routerLink="/table">tabla</span>
       </button>
       <button routerLink="" mat-menu-item>
         <mat-icon>voicemail</mat-icon>
         <span>expansivo</span>
       </button>
       <button routerLink="/card" mat-menu-item>
-          <span>tarjetas</span>
-        </button>
+        <span>tarjetas</span>
+      </button>
     </mat-menu>
-    
-    
-    
-    
-    
-    
   </mat-toolbar-row>
 </mat-toolbar>

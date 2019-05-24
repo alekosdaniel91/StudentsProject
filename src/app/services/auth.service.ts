@@ -60,7 +60,6 @@ export class AuthService {
     return userRef.set(data, { merge: true })
   }
 
-
   isUserAdmin(userUid) {
     return this.afs.doc<UserInterface>(`users/${userUid}`).valueChanges();
   }

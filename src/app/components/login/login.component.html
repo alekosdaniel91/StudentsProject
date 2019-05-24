@@ -1,35 +1,37 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form #formLogin="ngForm" (submit)="onLogin()">
-      <table class="example-full-width" cellspacing="0">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput [(ngModel)]="email" type="email" id="email" name="email" class="form-control" placeholder="Email"
-                required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput [(ngModel)]="password" type="password" id="password" name="password" class="form-control"
-                placeholder="Password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </form>
-
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button type="submit">Login</button>
-    <button mat-raised-button (click)="onLoginFacebook()">FACEBOOK</button>
-    <button mat-raised-button (click)="onLoginGoogle()">GOOGLE</button>
-    <button mat-raised-button (click)="onLogout()">Logout</button>
-  </mat-card-actions>
-</mat-card>
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form #formLogin="ngForm" (submit)="onLogin()">
+        <table class="example-full-width" cellspacing="0" class="table">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="email" type="email" id="email" name="email" class="form-control" placeholder="Email"
+                  required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="password" type="password" id="password" name="password" class="form-control"
+                  placeholder="Password" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+  
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button type="submit">Login</button>
+      <button mat-raised-button (click)="onLoginFacebook()">FACEBOOK</button>
+      <button mat-raised-button (click)="onLoginGoogle()">GOOGLE</button>
+      <button mat-raised-button (click)="onLogout()">Logout</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

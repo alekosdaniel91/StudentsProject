@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStudentsApiService } from '../../services/datastudents-api.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,8 +10,10 @@ import { DataStudentsApiService } from '../../services/datastudents-api.service'
 export class ToolbarComponent implements OnInit {
   private averageActive
   private average
+  public isLogged = false;
 
-  constructor(private dataApi: DataStudentsApiService) { }
+
+  constructor(private dataApi: DataStudentsApiService, private authService:AuthService) { }
 
   ngOnInit() {
     this.getAverage()
@@ -37,6 +40,11 @@ export class ToolbarComponent implements OnInit {
     else {
       return 'yellow'
     }
+  }
+
+  onLogout(): void {
+    this.authService.logoutUser();
+    location.reload();
   }
 
 }
