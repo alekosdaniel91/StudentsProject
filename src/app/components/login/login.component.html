@@ -10,7 +10,7 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput [(ngModel)]="email" type="email" id="email" name="email" class="form-control" placeholder="Email"
+              <input matInput [(ngModel)]="email" type="email" id="email" name="Correo" class="form-control" placeholder="Correo"
                 required>
             </mat-form-field>
           </td>
@@ -18,8 +18,8 @@
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput [(ngModel)]="password" type="password" id="password" name="password" class="form-control"
-                placeholder="Password" required>
+              <input matInput [(ngModel)]="password" type="password" id="password" name="Contraseña" class="form-control"
+                placeholder="Contraseña" required>
             </mat-form-field>
           </td>
         </tr>
@@ -37,6 +37,7 @@
       <button mat-raised-button type="submit">Login</button>
       <button mat-raised-button (click)="onLoginFacebook()">FACEBOOK</button>
       <button mat-raised-button (click)="onLoginGoogle()">GOOGLE</button>
+      <button mat-raised-button (click)="register()">register</button>
     </mat-card-actions>
   </mat-card>
   </form>

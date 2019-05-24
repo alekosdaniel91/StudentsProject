@@ -45,6 +45,13 @@ export class LoginComponent implements OnInit {
     this.ngZone.run(() => this.router.navigate(['table'])).then()
   }
   
+  register(){
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(this.email,this.password)
+        .then(userData => {
+          resolve(userData)}).catch(err => console.log(reject(err)))
+    });
+  }
   
 }
 
