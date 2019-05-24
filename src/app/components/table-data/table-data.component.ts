@@ -21,7 +21,6 @@ export class TableDataComponent implements OnInit {
       .getAllStudentsData()
       .subscribe((data: DataInterface) => {
         this.dataSource = data;
-        console.log(this.dataSource);
       });
       
       

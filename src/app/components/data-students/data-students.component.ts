@@ -15,11 +15,10 @@ export class DataStudentsComponent implements OnInit {
   private  isTrue: boolean=true
   private ID: number=0
   panelOpenState = false;
+  
   ngOnInit() {
     this.getData();
     this.getAverage();
-    let v='Spawn_Locker_Hangout_Seat_LunchSpot_Seat_Locker_Exit'
-    console.log('Spawn_Locker_Hangout_Seat_LunchSpot_Seat_Locker_Exit',v.replace(/_/g,' '))
   }
   
   

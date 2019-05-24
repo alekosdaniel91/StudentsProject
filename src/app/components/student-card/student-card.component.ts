@@ -17,7 +17,6 @@ export class StudentCardComponent implements OnInit {
   panelOpenState = false;
   ngOnInit() {
     this.getData();
-    this.getAverage();
   }
   
   
@@ -28,29 +27,19 @@ export class StudentCardComponent implements OnInit {
   }
 
   getGrades(i:number):void{
-    console.log(this.data[i].grades,'numero' )
     this.isTrue=!this.isTrue
     this.ID=this.data[i].ID
   }
   getColor(num: number): string {
-    if(num < 3){
-    console.log('entro', num);
-    return 'red'}
-    if(num>3.9){
+    if(num < 3)
+    return 'red'
+    if(num>3.9)
       return 'green'
-    }
-    else{
-    return 'yellow'}
+    else
+    return 'yellow'
   }
   replace(dat: string): string {
     return dat.replace(/_/g,' ')
   }
-  getAverage(): void {
-    this.dataApi
-    .getAllStudentsData()
-    .subscribe((data: DataInterface) => {
-      this.data = data
-    });
-    
-  }
+  
 }

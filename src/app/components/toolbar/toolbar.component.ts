@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStudentsApiService } from '../../services/datastudents-api.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,11 +14,13 @@ export class ToolbarComponent implements OnInit {
   public isLogged = false;
 
 
-  constructor(private dataApi: DataStudentsApiService, private authService:AuthService) { }
+  constructor(private dataApi: DataStudentsApiService, private authService:AuthService, private router: Router) { }
 
   ngOnInit() {
     this.getAverage()
     this.getAverageActive()
+    this.showAverage()
+    console.log(this.router.url);
   }
 
   getAverage(): void {
@@ -46,5 +49,9 @@ export class ToolbarComponent implements OnInit {
     this.authService.logoutUser();
     location.reload();
   }
-
+  showAverage():void{
+    if(this.router.url !== '/login'){
+      this.isLogged=true;
+    }
+  }
 }

@@ -19,14 +19,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   onLogin(): void {
-    this.authService.loginEmailUser(this.email, this.password)
+      this.authService.loginEmailUser(this.email, this.password)
       .then((res) => {
         this.onLoginRedirect();
       }).catch(err => console.log('err', err.message));
   }
 
   onLoginGoogle() {
-    // this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
     this.authService.loginGoogleUser()
       .then((res) => {
         this.onLoginRedirect();
