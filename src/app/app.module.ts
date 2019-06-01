@@ -36,6 +36,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFirestoreModule,
     MatListModule,
     MatExpansionModule,
     MatCardModule,
@@ -48,7 +49,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
     MatDividerModule,
     MatInputModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent]
